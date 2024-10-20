@@ -41,7 +41,7 @@ class Battle:
             army.clear_bullets()
 
     def target_army(self, army: 'Army') -> 'Army':
-        return self.armies[(army.id + 1) % len(self.armies)]
+        return self.armies[(self.armies.index(army) + 1) % len(self.armies)]
 
 
 # HAS a deque of Soldiers
