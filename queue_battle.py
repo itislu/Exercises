@@ -40,12 +40,12 @@ class Battle:
         for army in self.armies:
             army.clear_bullets()
 
-    def target_army(self, army: 'Army') -> 'Army':
+    def target_army(self, army: "Army") -> "Army":
         return self.armies[(self.armies.index(army) + 1) % len(self.armies)]
 
 
 # HAS a deque of Soldiers
-# HAS a queue of Bullets incoming
+# HAS a list of Bullets incoming
 class Army(Battle):
     def __init__(self, id: int, army: Tuple[int, ...], distance: int):
         super().__init__(distance)
@@ -60,7 +60,7 @@ class Army(Battle):
         return self._id
 
     @property
-    def head(self) -> 'Soldier':
+    def head(self) -> "Soldier":
         return self.soldiers[0]
 
     def alive(self) -> bool:
@@ -69,8 +69,7 @@ class Army(Battle):
     def clear_bullets(self) -> None:
         self.bullets_incoming.clear()
 
-    # Returns a bullet and rotates the soldiers
-    def fire(self) -> Optional['Bullet']:
+    def fire(self) -> Optional["Bullet"]:
         return self.head.fire()
 
     def rotate(self) -> None:
@@ -79,19 +78,18 @@ class Army(Battle):
         else:
             self.soldiers.popleft()
 
-    def add_bullet(self, bullet: 'Bullet') -> None:
+    def add_bullet(self, bullet: "Bullet") -> None:
         self.bullets_incoming.append(bullet)
 
-    # Updates all bullets, and drops the head soldier if he gets hit
     def update_bullets(self):
         for bullet in self.bullets_incoming:
             bullet.update()
+        self.bullets_incoming.sort(key=lambda bullet: bullet.distance_travelled)
         if len(self._bullets_hit()) > 0:
             self.head.is_alive = False
 
-    def _bullets_hit(self) -> list['Bullet']:
+    def _bullets_hit(self) -> list["Bullet"]:
         bullets_hit: list[Bullet] = []
-        self.bullets_incoming.sort(key=lambda bullet: bullet.distance_travelled)
         while (
             self.bullets_incoming
             and self.bullets_incoming[-1].distance_travelled >= self.distance
@@ -114,7 +112,7 @@ class Soldier:
     def rifle_speed(self) -> int:
         return self._rifle_speed
 
-    def fire(self) -> Optional['Bullet']:
+    def fire(self) -> Optional["Bullet"]:
         return Bullet(self.rifle_speed) if self.is_alive else None
 
 
@@ -159,6 +157,6 @@ example_sols = (
 	(-1,()),
 )
 
-for i,v in enumerate(example_tests):
-	winner = queue_battle(*v)
-	print(winner)
+for i, v in enumerate(example_tests):
+    winner = queue_battle(*v)
+    print(winner)
