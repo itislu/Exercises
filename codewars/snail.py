@@ -1,3 +1,6 @@
+# https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/python
+
+
 # First move is measurement of length of square
 # Then, every 2 moves length is decreased by 1
 def snail(snail_map):
@@ -24,6 +27,8 @@ def snail(snail_map):
     return res
 
 
+# TESTS
+
 tests = (
     [[1,2,3],
      [4,5,6],
@@ -39,6 +44,7 @@ expected = (
 
 for test, expect in zip(tests, expected):
     res = snail(test)
-    print("result:", res)
     print("expect:", expect)
+    print("result:", res)
+    print("PASSED") if res == expect else print("FAILED")
     print()

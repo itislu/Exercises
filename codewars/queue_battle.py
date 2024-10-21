@@ -1,3 +1,6 @@
+# https://www.codewars.com/kata/5d617c2fa5e6a2001a369da2/python
+
+
 from collections import deque
 from typing import Optional, Tuple
 
@@ -141,6 +144,8 @@ def queue_battle(dist, *armies):
         winner = battle.check_winner()
     return winner
 
+
+# TESTS
 
 example_tests = (
 	(100,(25,38,55,46,82),(64,90,37,25,58)),
