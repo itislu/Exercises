@@ -14,6 +14,7 @@ I collected some of my favorite problems that I encountered on Codewars, either 
 
 | **Difficulty** | **Problem** | **Solution** | **Language** | **Date** |
 |----------------|-------------|--------------|----------|--------------|
+| 4 kyu | [The observed PIN](https://www.codewars.com/kata/5263c6999e0f40dee200059d/python) | [the_observed_pin.py]() | Python | 21.10.2024 |
 | 4 kyu | [Range Extraction](https://www.codewars.com/kata/51ba717bb08c1cd60f00002f/python) | [range_extraction.py]() | Python | 20.10.2024 |
 | 4 kyu | [Queue Battle](https://www.codewars.com/kata/5d617c2fa5e6a2001a369da2/python) | [queue_battle.py]() | Python | 20.10.2024 |
 | 4 kyu | [Snail](https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/python) | [snail.py]() | Python | 17.10.2024 |
